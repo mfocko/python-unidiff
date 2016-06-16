@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 
 from __future__ import print_function, unicode_literals
 
@@ -30,8 +29,7 @@ def get_parser():
                         help='if not specified, read diff data from stdin')
     return parser
 
-
-if __name__ == '__main__':
+def main():
     parser = get_parser()
     args = parser.parse_args()
 
@@ -73,3 +71,6 @@ if __name__ == '__main__':
     if renamed_files:
         print('%d file(s) renamed' % renamed_files)
     print('Total: %d addition(s), %d deletion(s)' % (additions, deletions))
+
+if __name__ == '__main__':
+    main()

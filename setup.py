@@ -39,7 +39,11 @@ setup(
     author_email=EMAIL,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-    scripts=['bin/unidiff'],
+    entry_points={
+        'console_scripts': [
+            'unidiff = unidiff.cli:main',
+        ],
+    },
     include_package_data=True,
     license=LICENSE,
     classifiers=[
