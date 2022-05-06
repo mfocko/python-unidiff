@@ -1,0 +1,20 @@
+upstream_project_url: https://github.com/matiasb/python-unidiff
+upstream_ref: v0.6.0
+downstream_package_name: python-unidiff
+specfile_path: .distro/python-unidiff.spec
+patch_generation_ignore_paths:
+- .distro
+patch_generation_patch_id_digits: 1
+sync_changelog: true
+files_to_sync:
+- src: .distro/
+  dest: .
+  delete: true
+  filters:
+  - protect .git*
+  - protect sources
+  - exclude source-git.yaml
+  - exclude .gitignore
+sources:
+- path: unidiff-0.6.0.tar.gz
+  url: https://src.fedoraproject.org/repo/pkgs/rpms/python-unidiff/unidiff-0.6.0.tar.gz/sha512/2e4d30221a3f3230c3559936e7423bdb32d36127eac5c1c7b3c3dc9946ea7276c5074d7fb962e80117052830f98b4dfa1af9bfdea8369293ba77ccef86303f87/unidiff-0.6.0.tar.gz
