@@ -1,11 +1,16 @@
 upstream_project_url: https://github.com/matiasb/python-unidiff
-upstream_ref: v0.6.0
+upstream_ref: v*
+issue_repository: https://github.com/mfocko/python-unidiff
+
 downstream_package_name: python-unidiff
 specfile_path: .distro/python-unidiff.spec
+
 patch_generation_ignore_paths:
 - .distro
 patch_generation_patch_id_digits: 1
+
 sync_changelog: true
+
 files_to_sync:
 - src: .distro/
   dest: .
@@ -15,6 +20,42 @@ files_to_sync:
   - protect sources
   - exclude source-git.yaml
   - exclude .gitignore
+
 sources:
 - path: unidiff-0.6.0.tar.gz
   url: https://src.fedoraproject.org/repo/pkgs/rpms/python-unidiff/unidiff-0.6.0.tar.gz/sha512/2e4d30221a3f3230c3559936e7423bdb32d36127eac5c1c7b3c3dc9946ea7276c5074d7fb962e80117052830f98b4dfa1af9bfdea8369293ba77ccef86303f87/unidiff-0.6.0.tar.gz
+
+srpm_build_deps: []
+
+jobs:
+- job: propose_downstream
+  trigger: release
+  metadata:
+    dist_git_branches:
+    - fedora-branched
+    - epel-all
+
+- job: koji_build
+  trigger: commit
+  metadata:
+    dist_git_branches:
+    - fedora-branched
+    - epel-all
+
+- job: bodhi_update
+  trigger: commit
+  metadata:
+    dist_git_branches:
+    - fedora-branched
+    - epel-all
+
+- job: copr_build
+  trigger: commit
+  metadata:
+    branch: rawhide
+    targets:
+    - fedora-branched
+    - epel-all
+    owner: mfocko
+    project: python-unidiff
+    preserve_project: True
