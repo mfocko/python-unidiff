@@ -1,8 +1,8 @@
 %global modname unidiff
 
 Name:           python-%{modname}
-Version:        0.6.0
-Release:        7%{?dist}
+Version:        0.7.3
+Release:        1%{?dist}
 Summary:        Python library to parse and interact with unified diffs (patches)
 License:        MIT
 URL:            http://github.com/matiasb/python-unidiff
@@ -44,6 +44,9 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} %{__python3} -m unittest discover -s t
 %{python3_sitelib}/%{modname}*.egg-info
 
 %changelog
+* Fri May 06 2022 Matej Focko <mfocko@redhat.com> - 0.7.3-1
+- New upstream release 0.7.3
+
 * Fri Jan 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.0-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
