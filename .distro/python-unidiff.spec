@@ -1,4 +1,5 @@
 %global modname unidiff
+%global pypi_name unidiff
 
 Name:           python-%{modname}
 Version:        0.7.3
@@ -6,7 +7,7 @@ Release:        1%{?dist}
 Summary:        Python library to parse and interact with unified diffs (patches)
 License:        MIT
 URL:            http://github.com/matiasb/python-unidiff
-Source0:        https://files.pythonhosted.org/packages/source/u/%{modname}/%{modname}-%{version}.tar.gz
+Source0:        %pypi_source
 BuildArch:      noarch
 
 %description
