@@ -20,6 +20,8 @@ files_to_sync:
   - protect sources
   - exclude source-git.yaml
   - exclude .gitignore
+- src: .distro/source-git.yaml
+  dest: .packit.yaml
 
 srpm_build_deps: []
 
