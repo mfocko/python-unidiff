@@ -2,7 +2,7 @@
 %global pypi_name unidiff
 
 Name:           python-%{modname}
-Version:        0.7.3
+Version:        0.7.5
 Release:        1%{?dist}
 Summary:        Python library to parse and interact with unified diffs (patches)
 License:        MIT
@@ -45,6 +45,9 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} %{__python3} -m unittest discover -s t
 %{python3_sitelib}/%{modname}*.egg-info
 
 %changelog
+* Mon May 22 2023 Matej Focko <mfocko@redhat.com> - 0.7.5-1
+- New upstream release 0.7.5
+
 * Fri May 06 2022 Matej Focko <mfocko@redhat.com> - 0.7.3-1
 - New upstream release 0.7.3
 
